@@ -224,7 +224,7 @@ while (restart == "sim") {
     personagem.treinoUp();
     prompt(`\nAperte enter para continuar...`);
     console.log(
-      `\nAo vencer a batalha você aprendeu algumas formas de masterizar seus ataques e com isso você ganha mais conhecimento de luta e domínio sobre sua própria magia.`
+      `\nAo vencer a batalha você aprendeu algumas formas de masterizar seus ataques e recuperou um pouco de vida, com isso você ganha mais conhecimento de luta e domínio sobre sua própria magia.`
     );
     console.log(`\n\tSeus novos Status:`);
     console.log(
