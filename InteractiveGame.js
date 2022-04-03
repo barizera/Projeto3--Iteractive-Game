@@ -3,8 +3,9 @@ const prompt = require("prompt-sync")();
 
 console.log(`\t####  A BATALHA MEDIEVAL!!  ####`);
 console.log();
-
+// CRIAÇÃO DO PERSONAGEM
 const personagem = {
+  // PERSONAGEM POSSUI NOME, VIDA, STAMINA E ATAQUES
   name: "",
   health: 100,
   stamina: 100,
@@ -14,17 +15,19 @@ const personagem = {
     att3: { nome: "Chuva de Fogo", dano: 30 },
   },
   food: 0,
+  // MÉTODOS
+  // APLIQUEI UM CHECK DE VIDA, PARA ENCERRAR A BATALHA CASO O PERSONAGEM FIQUE COM VIDA MENOR QUE 1 - POR SER ABATIDO.
   checkHpPersonagem: function () {
     if (this.health < 1) {
       console.log(`${this.name}, você foi abatido!`);
     }
   },
+  // UM ALTERAR STAMINA PORQUE EM ALGUNS MOMENTOS ELE PRECISA TER UMA STAMINA SPECÍFICA PARA PODER CONTINUAR.
   alteraStamina: function (qnt) {
     this.stamina += qnt;
   },
-  magiaNegra: function () {
-    return personagem.stamina - Math.floor(Math.random() * 101);
-  },
+
+  // MÉTODO QUE MELHORA OS STATUS POR CONTA DA MAGIA NEGRA. EXISTE A CHANCE DE MELHORAR OU NÃO.
   alteraStatus: function () {
     this.health += 25;
     this.stamina += 50;
@@ -32,22 +35,25 @@ const personagem = {
     this.ataques.att2.dano += 10;
     this.ataques.att3.dano += 15;
   },
+  // MÉTODO COMO SE FOSSE UM LVL UP, PARA APÓS A BATALHA, TER UM AUMENTO DE STATUS.
   treinoUp: function () {
     this.health += 10;
     this.ataques.att1.dano += 5;
     this.ataques.att2.dano += 5;
     this.ataques.att3.dano += 5;
   },
+  // MÉTODO PARA RESETAR OS STATUS AO STATUS INICIAL, CASO O USER DECIDA JOGAR NOVAMENTE.
   resetStatus: function () {
     this.health = 100;
     this.stamina = 100;
     this.food = 0;
-    this.ataques.tt1.dano = 5;
+    this.ataques.att1.dano = 5;
     this.ataques.att2.dano = 20;
     this.ataques.att3.dano = 30;
   },
 };
 
+// NPC'S UTILIZADOS NO GAME.
 const monster1 = {
   name: "Minotauro",
   health: 100,
@@ -99,7 +105,7 @@ const monster3 = {
   },
 };
 
-// ATAQUE:
+// FUNCTION DE ATAQUE:
 function ataqueBatalha(vidaAtual, ataqueEscolhido) {
   vidaAtual -= ataqueEscolhido;
   let attAleatorio = Math.floor(Math.random() * 101);
@@ -110,7 +116,7 @@ function ataqueBatalha(vidaAtual, ataqueEscolhido) {
   }
   return vidaAtual;
 }
-
+// UMA ARROW FUNCTION PARA TESTE DE CONDIÇÃO
 let magiaNegra = (stamina) => stamina - Math.floor(Math.random() * 101);
 
 let restart = "sim";
@@ -443,7 +449,7 @@ while (restart == "sim") {
     console.log(`\nPrecisamos fazer um teste mental para saber o que a Magia respingada nos trará?`);
     prompt(`\nVamos lá... aperte enter para ir ao teste e saber o que acontecerá com você.`);
 
-    if (personagem.magiaNegra() >= 1) {
+    if (magiaNegra() >= 70) {
       console.log(`\nVocê sentiu um enjôo e não se sente bem para continuar.`);
       personagem.stamina = 0;
       console.log(`Sua stamina caiu repentinamente para ${personagem.stamina}.`);
@@ -556,24 +562,11 @@ while (restart == "sim") {
   personagem.alteraStamina(-50);
 
   prompt(`\nVamos seguir? ... aperte enter...`);
-  comerFood = prompt(`\nSua vida está em ${personagem.health}Hp. Deseja comer a Food da Vida?: `);
-  while (comerFood != "s" && comerFood != "sim" && comerFood != "n" && comerFood != "nao") {
-    comerFood = prompt(`\nSua vida está em ${personagem.health}Hp. Deseja comer a Food da Vida?: `);
-    console.log(`Digite Sim ou Não grande Mago!`);
-    prompt("\n...");
+ 
   }
 
-  if (comerFood == "sim" || comerFood == "s") {
-    personagem.health = 100;
-    console.log(`Você comeu a Food da Vida e teve sua vida revigorada.\n`);
-    console.log(`\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.`);
-  } else {
-    prompt(`Tudo bem, vamos continuar...`);
-  }
+  console.log(`\nNão temos mais o que provar, agora é hora de descansar!`);
 
-  console.log(
-    `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`
-  );
 
   console.log(`\nChegamos ao fim da nossa jornada! E você provou que realmente é um grande Mago da Luz.`);
   personagem.resetStatus();
