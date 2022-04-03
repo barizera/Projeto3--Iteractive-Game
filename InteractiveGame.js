@@ -562,11 +562,8 @@ while (restart == "sim") {
   personagem.alteraStamina(-50);
 
   prompt(`\nVamos seguir? ... aperte enter...`);
- 
-  }
 
   console.log(`\nNão temos mais o que provar, agora é hora de descansar!`);
-
 
   console.log(`\nChegamos ao fim da nossa jornada! E você provou que realmente é um grande Mago da Luz.`);
   personagem.resetStatus();
