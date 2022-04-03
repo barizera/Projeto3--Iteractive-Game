@@ -1,4 +1,10 @@
 # Projeto3--Iteractive-Game
+Game criado para demonstração de conhecimentos adquiridos durante o módulo1 do curso
+Blue EdTech.
+
+Enredo criado para a utilização dos conteúdos aprendidos.
+
+
 
 Critérios de Avaliação
 Valor da entrega: 10 pontos.
