@@ -122,28 +122,34 @@ let magiaNegra = (stamina) => stamina - Math.floor(Math.random() * 101);
 let restart = "sim";
 
 while (restart == "sim") {
-  let nome = prompt(`\nBem vindo(a) a batalha medieval, qual será o nome do seu personagem?: `);
+  let nome = prompt(`Bem vindo(a) a batalha medieval, qual será o nome do seu personagem?: `);
 
   console.log(
-    `\n\tOK ${nome} \n\tVocê é um Mago.\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano}.\n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano}.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.\n`
+    `\n\tOK ${nome} \n\tVocê é um Mago.\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano}.\n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano}.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.\n`,
   );
 
   console.log(
-    `Como todo grande Mago, temos algumas responsabilidades, e a de hoje é defender a nossa sociedade dos perigos que rondam ela.`
+    `Como todo grande Mago, temos algumas responsabilidades, e a de hoje é defender a nossa sociedade dos perigos que rondam ela.`,
   );
   console.log(
-    `E para começar sua aventura, temos uma batalha com um monstro que está tentando destruir uma das nossas vilas.`
+    `E para começar sua aventura, temos uma batalha com um monstro que está tentando destruir uma das nossas vilas.`,
   );
 
-  let pronto = prompt(`Está pronto para começar a nossa primeira batalha?: (S/N) `).toLowerCase();
+  let pronto = prompt(
+    `Está pronto para começar a nossa primeira batalha?: (S/N) `,
+  ).toLowerCase();
   // pronto != (diferente) de 's' --> true && pronto != (diferente) de 'sim' --> true
   while (pronto != "s" && pronto != "sim") {
-    console.log(`\nAgora não há mais volta, ${nome}, enquanto sua resposta não for "S" não sairá do lugar!`);
-    pronto = prompt(`Está pronto para começar a nossa primeira batalha?: (S/N) `).toLowerCase();
+    console.log(
+      `\nAgora não há mais volta, ${nome}, enquanto sua resposta não for "S" não sairá do lugar!`,
+    );
+    pronto = prompt(
+      `Está pronto para começar a nossa primeira batalha?: (S/N) `,
+    ).toLowerCase();
   }
 
   console.log(
-    `\nAqui grande Mago, você se deparou com um filhote de minotauro, ele não parece ser tão perigoso, mas não o subestime ele pode ser fatal.`
+    `\nAqui grande Mago, você se deparou com um filhote de minotauro, ele não parece ser tão perigoso, mas não o subestime ele pode ser fatal.`,
   );
 
   prompt("\nAgora vamos ver o que seus ataques fazem..aperte enter para continuar");
@@ -154,20 +160,24 @@ while (restart == "sim") {
     round++;
     // DEMONSTRAR OS STATUS, DO USER E NPC
     console.log(
-      `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`
+      `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`,
     );
     console.log(
-      `\n\tStatus do ${monster1.name}:\n\tVida: ${monster1.health}.\n\tAtaque ${monster1.ataques.att1.nome} causa: ${monster1.ataques.att1.dano} de dano.\n\t${monster1.ataques.att2.nome} causa: ${monster1.ataques.att2.dano} de dano`
+      `\n\tStatus do ${monster1.name}:\n\tVida: ${monster1.health}.\n\tAtaque ${monster1.ataques.att1.nome} causa: ${monster1.ataques.att1.dano} de dano.\n\t${monster1.ataques.att2.nome} causa: ${monster1.ataques.att2.dano} de dano`,
     );
     console.log(
-      `\nQual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - Ataque Corpo a corpo\n\t(2) - Bola de Fogo\n\t(3) - Chuva de Elementos`
+      `\nQual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - Ataque Corpo a corpo\n\t(2) - Bola de Fogo\n\t(3) - Chuva de Elementos`,
     );
     let ataqueEscolhidoPersonagem = +prompt("\tAtaque: ");
 
-    while (ataqueEscolhidoPersonagem != "1" && ataqueEscolhidoPersonagem != "2" && ataqueEscolhidoPersonagem != "3") {
+    while (
+      ataqueEscolhidoPersonagem != "1" &&
+      ataqueEscolhidoPersonagem != "2" &&
+      ataqueEscolhidoPersonagem != "3"
+    ) {
       console.log(`Por favor, escolha um ataque válido!`);
       console.log(
-        `Qual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - ${personagem.ataques.att1.nome}: ${personagem.ataques.att1.dano} \n\t(2) - ${personagem.ataques.att2.nome}: ${personagem.ataques.att2.dano}\n\t(3) - ${personagem.ataques.att3.nome}: ${personagem.ataques.att3.dano}`
+        `Qual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - ${personagem.ataques.att1.nome}: ${personagem.ataques.att1.dano} \n\t(2) - ${personagem.ataques.att2.nome}: ${personagem.ataques.att2.dano}\n\t(3) - ${personagem.ataques.att3.nome}: ${personagem.ataques.att3.dano}`,
       );
       ataqueEscolhidoPersonagem = prompt("\n\tR: ");
     }
@@ -199,11 +209,15 @@ while (restart == "sim") {
     let ataqueMonster1 = Math.floor(Math.random() * 2 + 1);
     if (ataqueMonster1 == 1) {
       personagem.health = ataqueBatalha(personagem.health, monster1.ataques.att1.dano);
-      console.log(`\nO ataque ${monster1.ataques.att1.nome} causou ${monster1.ataques.att1.dano} de dano em você.`);
+      console.log(
+        `\nO ataque ${monster1.ataques.att1.nome} causou ${monster1.ataques.att1.dano} de dano em você.`,
+      );
       console.log();
     } else {
       personagem.health = ataqueBatalha(personagem.health, monster1.ataques.att2.dano);
-      console.log(`\nO ataque ${monster1.ataques.att2.nome} causou ${monster1.ataques.att2.dano} de dano em você.`);
+      console.log(
+        `\nO ataque ${monster1.ataques.att2.nome} causou ${monster1.ataques.att2.dano} de dano em você.`,
+      );
     }
     personagem.checkHpPersonagem();
 
@@ -214,9 +228,11 @@ while (restart == "sim") {
   }
 
   if (personagem.health <= 0) {
-    console.log(`\nA batalha foi difícil para você, mas saiba que cada derrota é um aprendizado.`);
     console.log(
-      `Você foi carregado para uma floresta por um aldeão, aos cuidados de Taoistas. E toda sua vida foi recuperada.`
+      `\nA batalha foi difícil para você, mas saiba que cada derrota é um aprendizado.`,
+    );
+    console.log(
+      `Você foi carregado para uma floresta por um aldeão, aos cuidados de Taoistas. E toda sua vida foi recuperada.`,
     );
     personagem.health = 100;
   } else {
@@ -224,23 +240,25 @@ while (restart == "sim") {
     personagem.treinoUp();
     prompt(`\nAperte enter para continuar...`);
     console.log(
-      `\nAo vencer a batalha você aprendeu algumas formas de masterizar seus ataques e recuperou um pouco de vida, com isso você ganha mais conhecimento de luta e domínio sobre sua própria magia.`
+      `\nAo vencer a batalha você aprendeu algumas formas de masterizar seus ataques e recuperou um pouco de vida, com isso você ganha mais conhecimento de luta e domínio sobre sua própria magia.`,
     );
     console.log(`\n\tSeus novos Status:`);
     console.log(
-      `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`
+      `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`,
     );
     console.log(`\nOpa, achamos uma Food da Vida no corpo do Minotauro.`);
     personagem.food++;
     console.log(`O que será que essa food faz?`);
     console.log(
-      `Ela recupera toda a sua vida, e você podera comer ela no momento certo. Você vai saber quando for a hora.\n`
+      `Ela recupera toda a sua vida, e você podera comer ela no momento certo. Você vai saber quando for a hora.\n`,
     );
-    console.log(`Agora que você descobriu que a função da food, vamos até a cidade contar o seu feito.`);
+    console.log(
+      `Agora que você descobriu que a função da food, vamos até a cidade contar o seu feito.`,
+    );
   }
 
   console.log(
-    `\nCada batalha você gasta 50 de stamina, e se ela estiver abaixo de 25, você pode perder as forças durante a batalha. CUIDADO!`
+    `\nCada batalha você gasta 50 de stamina, e se ela estiver abaixo de 25, você pode perder as forças durante a batalha. CUIDADO!`,
   );
   personagem.alteraStamina(-50);
 
@@ -248,10 +266,10 @@ while (restart == "sim") {
   prompt("\nVamos a cidade... aperte enter");
 
   console.log(
-    `\nChegamos a cidade grande Mago, e lembrando que sua Stamina está em ${personagem.stamina} e sua vida em ${personagem.health}Hp, você precisa descansar, pois amanhã o dia será longo, tem uma horda de Magos Negros e Black Warriors vindo a nossa cidade e precisamos estar bem descansados.\n`
+    `\nChegamos a cidade grande Mago, e lembrando que sua Stamina está em ${personagem.stamina} e sua vida em ${personagem.health}Hp, você precisa descansar, pois amanhã o dia será longo, tem uma horda de Magos Negros e Black Warriors vindo a nossa cidade e precisamos estar bem descansados.\n`,
   );
   console.log(
-    `Você tem 2 opções de descanso:\n\t1 - Ir a um dormitório (Recupera toda a sua vida e 25 de stamina)\n\t2 - Ir para a taverna beber e descansar (Recupera toda sua stamina e 25Hp da sua vida atual) `
+    `Você tem 2 opções de descanso:\n\t1 - Ir a um dormitório (Recupera toda a sua vida e 25 de stamina)\n\t2 - Ir para a taverna beber e descansar (Recupera toda sua stamina e 25Hp da sua vida atual) `,
   );
   let descanso = prompt(`\tEscolha: `);
   while (descanso != "1" && descanso != "2") {
@@ -273,12 +291,18 @@ while (restart == "sim") {
   }
 
   console.log(`Bom dia, Grande Mago! Descansou bem?`);
-  console.log(`\n\tStatus do Personagem:\n\tVida: ${personagem.health}.\n\tStamina: ${personagem.stamina}.`);
+  console.log(
+    `\n\tStatus do Personagem:\n\tVida: ${personagem.health}.\n\tStamina: ${personagem.stamina}.`,
+  );
 
   // IF PARA VER SE O PLAYER QUER RECUPERAR A VIDA.
-  let comerFood = prompt(`\nSua vida está em ${personagem.health}Hp. Deseja comer a Food da Vida?: `);
+  let comerFood = prompt(
+    `\nSua vida está em ${personagem.health}Hp. Deseja comer a Food da Vida?: `,
+  );
   while (comerFood != "s" && comerFood != "sim" && comerFood != "n" && comerFood != "nao") {
-    comerFood = prompt(`\nSua vida está em ${personagem.health}Hp. Deseja comer a Food da Vida?: `);
+    comerFood = prompt(
+      `\nSua vida está em ${personagem.health}Hp. Deseja comer a Food da Vida?: `,
+    );
     console.log(`Digite Sim ou Não grande Mago!`);
   }
   if (comerFood == "sim" || comerFood == "s") {
@@ -293,12 +317,14 @@ while (restart == "sim") {
 
   // ### CHEGANDO A BIFURCAÇÃO ###
   console.log(
-    `\nChegamos em uma bifurcação no meio do caminho, e ao olhar para esquerda, percebemos uma floresta verde e com o céu bem limpo.\nPara a direita, temos umas montanhas cheio de nuvens carregadas onde só os mais temidos ou os mais sortudos conseguem sobreviver.`
+    `\nChegamos em uma bifurcação no meio do caminho, e ao olhar para esquerda, percebemos uma floresta verde e com o céu bem limpo.\nPara a direita, temos umas montanhas cheio de nuvens carregadas onde só os mais temidos ou os mais sortudos conseguem sobreviver.`,
   );
   console.log(
-    `Ao seguir pela floresta, vamos gastar 40 de Stamina para uma passagem mais tranquila, pelas montanhas vamos gastar 80 de stamina para uma caminhada mais árdua, mas que podemos ter algumas recompensas dos mortos pelo caminho.`
+    `Ao seguir pela floresta, vamos gastar 40 de Stamina para uma passagem mais tranquila, pelas montanhas vamos gastar 80 de stamina para uma caminhada mais árdua, mas que podemos ter algumas recompensas dos mortos pelo caminho.`,
   );
-  console.log(`\n E aí ${personagem.name}, por onde vamos seguir?:\n\t1- Floresta;\n\t2- Montanhas.`);
+  console.log(
+    `\n E aí ${personagem.name}, por onde vamos seguir?:\n\t1- Floresta;\n\t2- Montanhas.`,
+  );
   let caminhoEscolhido = prompt(`Escolha:`);
   while (caminhoEscolhido != "1" && caminhoEscolhido != "2") {
     console.log(`Essa escolha não é válida, coragem Mago!`);
@@ -307,15 +333,19 @@ while (restart == "sim") {
   // ### CAMINHO 1 ESCOLHIDO ###
   if (caminhoEscolhido == "1") {
     personagem.alteraStamina(-40);
-    console.log(`\nCaminhando pela floresta você foi parado por um Elfo, que parecia estar bem nervoso.`);
-    console.log(`Ele chegou até você e perguntou se podia ajudar a vila dele, em troca ele te daria sua energia.`);
     console.log(
-      `Você como um Mago da Luz, aceitou ajudar o Elfo, e ele começou a falar algumas frases élficas e você começou a sentir um poder a mais dentro do corpo.`
+      `\nCaminhando pela floresta você foi parado por um Elfo, que parecia estar bem nervoso.`,
+    );
+    console.log(
+      `Ele chegou até você e perguntou se podia ajudar a vila dele, em troca ele te daria sua energia.`,
+    );
+    console.log(
+      `Você como um Mago da Luz, aceitou ajudar o Elfo, e ele começou a falar algumas frases élficas e você começou a sentir um poder a mais dentro do corpo.`,
     );
     prompt(`\n... aperte enter para saber o resultado do que o Elf estava falando...`);
     personagem.treinoUp();
     console.log(
-      `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`
+      `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`,
     );
     console.log(`Mais a frente você avista a aldeia e percebe algo...`);
     console.log(`\nA aldeia de Elfos estava sendo atacada por um Black Warrior.`);
@@ -330,20 +360,24 @@ while (restart == "sim") {
       round = round + 1;
       // DEMONSTRAR OS STATUS, DO USER E NPC
       console.log(
-        `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`
+        `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`,
       );
       console.log(
-        `\n\tStatus do ${monster2.name}:\n\tVida: ${monster2.health}.\n\tAtaque ${monster2.ataques.att1.nome} causa: ${monster2.ataques.att1.dano} de dano.\n\t${monster2.ataques.att2.nome} causa: ${monster2.ataques.att2.dano} de dano`
+        `\n\tStatus do ${monster2.name}:\n\tVida: ${monster2.health}.\n\tAtaque ${monster2.ataques.att1.nome} causa: ${monster2.ataques.att1.dano} de dano.\n\t${monster2.ataques.att2.nome} causa: ${monster2.ataques.att2.dano} de dano`,
       );
       console.log(
-        `\nQual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - Ataque Corpo a corpo\n\t(2) - Bola de Fogo\n\t(3) - Chuva de Elementos`
+        `\nQual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - Ataque Corpo a corpo\n\t(2) - Bola de Fogo\n\t(3) - Chuva de Elementos`,
       );
       let ataqueEscolhidoPersonagem = +prompt("\tAtaque: ");
 
-      while (ataqueEscolhidoPersonagem != "1" && ataqueEscolhidoPersonagem != "2" && ataqueEscolhidoPersonagem != "3") {
+      while (
+        ataqueEscolhidoPersonagem != "1" &&
+        ataqueEscolhidoPersonagem != "2" &&
+        ataqueEscolhidoPersonagem != "3"
+      ) {
         console.log(`Por favor, escolha um ataque válido!`);
         console.log(
-          `Qual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - ${personagem.ataques.att1.nome}: ${personagem.ataques.att1.dano} \n\t(2) - ${personagem.ataques.att2.nome}: ${personagem.ataques.att2.dano}\n\t(3) - ${personagem.ataques.att3.nome}: ${personagem.ataques.att3.dano}`
+          `Qual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - ${personagem.ataques.att1.nome}: ${personagem.ataques.att1.dano} \n\t(2) - ${personagem.ataques.att2.nome}: ${personagem.ataques.att2.dano}\n\t(3) - ${personagem.ataques.att3.nome}: ${personagem.ataques.att3.dano}`,
         );
         ataqueEscolhidoPersonagem = prompt("\n\tR: ");
       }
@@ -374,11 +408,15 @@ while (restart == "sim") {
       let ataqueMonster2 = Math.floor(Math.random() * 2 + 1);
       if (ataqueMonster2 == 1) {
         personagem.health = ataqueBatalha(personagem.health, monster2.ataques.att1.dano);
-        console.log(`\nO ataque ${monster2.ataques.att1.nome} causou ${monster2.ataques.att1.dano} de dano em você.`);
+        console.log(
+          `\nO ataque ${monster2.ataques.att1.nome} causou ${monster2.ataques.att1.dano} de dano em você.`,
+        );
         console.log();
       } else {
         personagem.health = ataqueBatalha(personagem.health, monster2.ataques.att2.dano);
-        console.log(`\nO ataque ${monster2.ataques.att2.nome} causou ${monster2.ataques.att2.dano} de dano em você.`);
+        console.log(
+          `\nO ataque ${monster2.ataques.att2.nome} causou ${monster2.ataques.att2.dano} de dano em você.`,
+        );
       }
       personagem.checkHpPersonagem();
       if (personagem.health <= 0) {
@@ -388,12 +426,14 @@ while (restart == "sim") {
     }
     console.log(`\nVasculhando o corpo do Black Warrior, achamos outra Food da Vida!`);
     personagem.food++;
-    console.log(`\nCom o Black Warrior abatido e Food da Vida na bolsa, podemos seguir na jornada!`);
+    console.log(
+      `\nCom o Black Warrior abatido e Food da Vida na bolsa, podemos seguir na jornada!`,
+    );
   }
   // ### CAMINHO 2 ESCOLHIDO ###
   else {
     console.log(
-      `Antes de prosseguir, você pode acampar na sua barraca mágica e recuperar toda sua stamina atualmente você tem ${personagem.stamina} de stamina.`
+      `Antes de prosseguir, você pode acampar na sua barraca mágica e recuperar toda sua stamina atualmente você tem ${personagem.stamina} de stamina.`,
     );
     let acampar = prompt(`Deseja realmente acampar?: `);
     while (acampar != "s" && acampar != "sim" && acampar != "n" && acampar != "nao") {
@@ -407,7 +447,9 @@ while (restart == "sim") {
       if (personagem.stamina < 80) {
         console.log(`\nNão tem jeito, você está sem forças para essa caminhada.`);
         prompt(`Está ouvindo essa voz?... aperte enter...`);
-        console.log(`\nVocê escuta uma voz: "Durma um pouco". E você pega no sono até recuperar sua stamina até 80.`);
+        console.log(
+          `\nVocê escuta uma voz: "Durma um pouco". E você pega no sono até recuperar sua stamina até 80.`,
+        );
         personagem.stamina = 80;
       }
       console.log(`\nOpa, está bem disposto para nossa caminhada.`);
@@ -417,11 +459,13 @@ while (restart == "sim") {
     prompt(`\nVamos seguir... Aperte enter para continuar...`);
 
     console.log(
-      `\nAo adentrar pelo caminho das montanhas, você percebe que alguns corpos estão intactos ainda, mas existem algumas auras negras ao redor deles.`
+      `\nAo adentrar pelo caminho das montanhas, você percebe que alguns corpos estão intactos ainda, mas existem algumas auras negras ao redor deles.`,
     );
     let verificar = "";
     do {
-      console.log(`Você deseja verificar os corpos? Saiba que esses corpos podem estar sob efeitos de magia negra.`);
+      console.log(
+        `Você deseja verificar os corpos? Saiba que esses corpos podem estar sob efeitos de magia negra.`,
+      );
       verificar = prompt(`Vericfica?(S/N): `);
     } while (verificar != "sim" && verificar != "s" && verificar != "nao" && verificar != "n");
     // SE VERIFICAR O CORPO
@@ -432,29 +476,35 @@ while (restart == "sim") {
       personagem.food += 2;
       if (personagem.food == "1") {
         console.log(
-          `Agora você possui ${personagem.food} food a Magia Negra é algo desconhecido, coisas boas podem acontecer e coisas ruins também.`
+          `Agora você possui ${personagem.food} food a Magia Negra é algo desconhecido, coisas boas podem acontecer e coisas ruins também.`,
         );
       } else {
         console.log(
-          `Agora você possui ${personagem.food} foods a Magia Negra é algo desconhecido, coisas boas podem acontecer e coisas ruins também.`
+          `Agora você possui ${personagem.food} foods a Magia Negra é algo desconhecido, coisas boas podem acontecer e coisas ruins também.`,
         );
       }
     } else {
       console.log(
-        `\nVocê decidiu não verificar, porém, a magia negra te puxa para o corpo e você sente que ela se alojou em você.`
+        `\nVocê decidiu não verificar, porém, a magia negra te puxa para o corpo e você sente que ela se alojou em você.`,
       );
       console.log(`A magia negra é algo desconhecido por nós.`);
     }
 
-    console.log(`\nPrecisamos fazer um teste mental para saber o que a Magia respingada nos trará?`);
+    console.log(
+      `\nPrecisamos fazer um teste mental para saber o que a Magia respingada nos trará?`,
+    );
     prompt(`\nVamos lá... aperte enter para ir ao teste e saber o que acontecerá com você.`);
 
     if (magiaNegra() >= 70) {
       console.log(`\nVocê sentiu um enjôo e não se sente bem para continuar.`);
       personagem.stamina = 0;
       console.log(`Sua stamina caiu repentinamente para ${personagem.stamina}.`);
-      console.log(`Lembrando que para esse caminho precisamos de 80 de stamina. Você foi obrigado a descansar.`);
-      let descansar = prompt(`A cada hora de descanso, você recupera 10 de stamina. Quantas horas vamos descansar?: `);
+      console.log(
+        `Lembrando que para esse caminho precisamos de 80 de stamina. Você foi obrigado a descansar.`,
+      );
+      let descansar = prompt(
+        `A cada hora de descanso, você recupera 10 de stamina. Quantas horas vamos descansar?: `,
+      );
       if (descansar < 8 || descansar > 10) {
         console.log(`\nGrande Mago, você caiu em um sono profundo.`);
         console.log(`E foi obrigado a descansar 8h, recuperando 80 de stamina.`);
@@ -462,7 +512,9 @@ while (restart == "sim") {
       } else {
         //for para fazer o descanso durar o tempo que o user decidir descansar.
         for (let i = 0; i <= descansar; i++) {
-          console.log(`\nse passaram ${i} horas, nossa stamina está em ${personagem.stamina}.`);
+          console.log(
+            `\nse passaram ${i} horas, nossa stamina está em ${personagem.stamina}.`,
+          );
           personagem.alteraStamina(10);
           prompt(`Pressione enter para passar mais 1h...`);
         }
@@ -471,17 +523,21 @@ while (restart == "sim") {
       console.log(`Você está sentindo essa forte vibração em seu corpo?`);
       personagem.alteraStatus();
       console.log(
-        `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`
+        `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`,
       );
-      console.log(`\nVocê ficou mais forte e isso pode te garantir vantagens em nossa jornada!`);
+      console.log(
+        `\nVocê ficou mais forte e isso pode te garantir vantagens em nossa jornada!`,
+      );
     }
 
     prompt(`\n... aperte enter...`);
     console.log(
-      `\nVocê seguiu caminhando e mais pra frente, você viu um Black Mage parado com seu cajado preto encostado ao chão.`
+      `\nVocê seguiu caminhando e mais pra frente, você viu um Black Mage parado com seu cajado preto encostado ao chão.`,
     );
 
-    console.log(`Estamos diante de uma nova batalha. Vamos ver se você ficou mais forte mesmo?`);
+    console.log(
+      `Estamos diante de uma nova batalha. Vamos ver se você ficou mais forte mesmo?`,
+    );
 
     // #### BATALHA 2 CAMINHO 2 - BLACK MAGE ####
     round = 1;
@@ -491,20 +547,24 @@ while (restart == "sim") {
       round = round + 1;
       // DEMONSTRAR OS STATUS, DO USER E NPC
       console.log(
-        `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`
+        `\n\tSua Vida: ${personagem.health}.\n\tSua stamina: ${personagem.stamina}.\n\tSeu ataque ${personagem.ataques.att1.nome} causa: ${personagem.ataques.att1.dano} de dano \n\tSua ${personagem.ataques.att2.nome} causa: ${personagem.ataques.att2.dano} de dano.\n\tSeu ataque ${personagem.ataques.att3.nome} causa: ${personagem.ataques.att3.dano} de dano.`,
       );
       console.log(
-        `\n\tStatus do ${monster3.name}:\n\tVida: ${monster3.health}.\n\tAtaque ${monster3.ataques.att1.nome} causa: ${monster3.ataques.att1.dano} de dano.\n\t${monster3.ataques.att2.nome} causa: ${monster3.ataques.att2.dano} de dano`
+        `\n\tStatus do ${monster3.name}:\n\tVida: ${monster3.health}.\n\tAtaque ${monster3.ataques.att1.nome} causa: ${monster3.ataques.att1.dano} de dano.\n\t${monster3.ataques.att2.nome} causa: ${monster3.ataques.att2.dano} de dano`,
       );
       console.log(
-        `\nQual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - Ataque Corpo a corpo\n\t(2) - Bola de Fogo\n\t(3) - Chuva de Elementos`
+        `\nQual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - Ataque Corpo a corpo\n\t(2) - Bola de Fogo\n\t(3) - Chuva de Elementos`,
       );
       let ataqueEscolhidoPersonagem = +prompt("\tAtaque: ");
 
-      while (ataqueEscolhidoPersonagem != "1" && ataqueEscolhidoPersonagem != "2" && ataqueEscolhidoPersonagem != "3") {
+      while (
+        ataqueEscolhidoPersonagem != "1" &&
+        ataqueEscolhidoPersonagem != "2" &&
+        ataqueEscolhidoPersonagem != "3"
+      ) {
         console.log(`Por favor, escolha um ataque válido!`);
         console.log(
-          `Qual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - ${personagem.ataques.att1.nome}: ${personagem.ataques.att1.dano} \n\t(2) - ${personagem.ataques.att2.nome}: ${personagem.ataques.att2.dano}\n\t(3) - ${personagem.ataques.att3.nome}: ${personagem.ataques.att3.dano}`
+          `Qual ataque você vai escolher para poder derrotar seu oponente?: \n\t(1) - ${personagem.ataques.att1.nome}: ${personagem.ataques.att1.dano} \n\t(2) - ${personagem.ataques.att2.nome}: ${personagem.ataques.att2.dano}\n\t(3) - ${personagem.ataques.att3.nome}: ${personagem.ataques.att3.dano}`,
         );
         ataqueEscolhidoPersonagem = prompt("\n\tR: ");
       }
@@ -536,11 +596,15 @@ while (restart == "sim") {
       let ataqueMonster3 = Math.floor(Math.random() * 2 + 1);
       if (ataqueMonster3 == 1) {
         personagem.health = ataqueBatalha(personagem.health, monster3.ataques.att1.dano);
-        console.log(`\nO ataque ${monster3.ataques.att1.nome} causou ${monster3.ataques.att1.dano} de dano em você.`);
+        console.log(
+          `\nO ataque ${monster3.ataques.att1.nome} causou ${monster3.ataques.att1.dano} de dano em você.`,
+        );
         console.log();
       } else {
         personagem.health = ataqueBatalha(personagem.health, monster3.ataques.att2.dano);
-        console.log(`\nO ataque ${monster3.ataques.att2.nome} causou ${monster3.ataques.att2.dano} de dano em você.`);
+        console.log(
+          `\nO ataque ${monster3.ataques.att2.nome} causou ${monster3.ataques.att2.dano} de dano em você.`,
+        );
       }
       personagem.checkHpPersonagem();
 
@@ -551,7 +615,9 @@ while (restart == "sim") {
     }
     console.log(`\nVasculhando o corpo do Black Mage, achamos outra Food da Vida!`);
     personagem.food++;
-    console.log(`\nCom o Black Mage abatido e Food da Vida na bolsa, podemos seguir na jornada!`);
+    console.log(
+      `\nCom o Black Mage abatido e Food da Vida na bolsa, podemos seguir na jornada!`,
+    );
   }
   if (personagem.health < 50) {
     console.log(`\nFoi por pouco, mas conseguimos.`);
@@ -565,13 +631,17 @@ while (restart == "sim") {
 
   console.log(`\nNão temos mais o que provar, agora é hora de descansar!`);
 
-  console.log(`\nChegamos ao fim da nossa jornada! E você provou que realmente é um grande Mago da Luz.`);
+  console.log(
+    `\nChegamos ao fim da nossa jornada! E você provou que realmente é um grande Mago da Luz.`,
+  );
   personagem.resetStatus();
   monster1.resetStatus();
   monster2.resetStatus();
   monster3.resetStatus();
   do {
-    restart = prompt(`Deseja jogar novamente e tentar se aventurar pelos outros caminhos? (SIM/NÃO): `).toLowerCase();
+    restart = prompt(
+      `Deseja jogar novamente e tentar se aventurar pelos outros caminhos? (SIM/NÃO): `,
+    ).toLowerCase();
   } while (restart != "sim" && restart != "nao");
 }
 console.log(`FIM!!! Obrigado por jogar com a Bari Tech!`);
